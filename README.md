@@ -1,6 +1,6 @@
 # Introduction
 
-A small comparison of two popular fake or mock data nuget libraries. 
+A small comparison of two popular fake or mock data NuGet libraries. 
 
 # Statistics
 
@@ -16,7 +16,7 @@ A small comparison of two popular fake or mock data nuget libraries.
 
 # Example Usage
 
-The classes used to populate fake data with are the following records. 
+The classes used to populate fake data are the following records. 
 
 ```csharp
 public record Address(string Line1, string Line2, string Town, string PostCode, string Country);
