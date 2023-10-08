@@ -1,9 +1,19 @@
 using AutoFixture;
+using System.Text.Json;
+using Xunit.Abstractions;
 
 namespace FakeData.Examples.Tests
 {
     public class AutoFixtureTests
     {
+        private readonly ITestOutputHelper outputHelper;
+
+        public AutoFixtureTests(ITestOutputHelper outputHelper)
+        {
+            this.outputHelper = outputHelper;
+        }
+
+
         [Fact]
         public void Person()
         {
@@ -15,7 +25,7 @@ namespace FakeData.Examples.Tests
                 .With(x => x.Email, "test@email.com")
                 .Create();
 
-            Console.WriteLine(person);
+            outputHelper.WriteLine(JsonSerializer.Serialize(person));
         }
     }
 }

@@ -1,10 +1,19 @@
 using Bogus;
 using System.Runtime.Serialization;
+using System.Text.Json;
+using Xunit.Abstractions;
 
 namespace FakeData.Examples.Tests
 {
     public class BogusTests
     {
+        private readonly ITestOutputHelper outputHelper;
+
+        public BogusTests(ITestOutputHelper outputHelper)
+        {
+            this.outputHelper = outputHelper;
+        }
+
         [Fact]
         public void Person()
         {
@@ -14,7 +23,7 @@ namespace FakeData.Examples.Tests
             // Generate a fake person
             var fakePerson = faker.Person.Generate();
 
-            Console.WriteLine(fakePerson);
+            outputHelper.WriteLine(JsonSerializer.Serialize(fakePerson));
         }
     }
 
